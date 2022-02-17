@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>All Events</title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
-
-<header th:replace="fragments :: site-header"></header>
+<h1>All Events</h1>
+<nav th:replace="fragments :: site-header"></nav>
+<p th:unless="${events} and ${events.size()}">No Event!</p>
 
 <ul>
-    <li th:each="event : ${events}" th:text="${event}"></li>
+    <th:block th:each="event : ${events}">
+        <li th:each="event : ${events}" th:text="${event}"></li>
+    </th:block>
 </ul>
 
 </body>
