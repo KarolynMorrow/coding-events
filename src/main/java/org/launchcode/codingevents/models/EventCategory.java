@@ -10,21 +10,14 @@ import javax.validation.constraints.Size;
  * Created by Chris Bay
  */
 @Entity
-public class EventCategory {
+public class EventCategory extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
 
     @NotBlank
     @Size(min = 3, max = 50)
     private String name;
 
     public EventCategory() {}
-
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
